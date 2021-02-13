@@ -1,0 +1,12 @@
+version: "3"    
+
+services:
+    server_api:
+        build: .
+        restart: always
+        network_mode: host
+        volumes:
+            - ./src:/app/src
+            - ./tests:/app/tests
+        container_name: int20h-api-back
+        command: build
