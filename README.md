@@ -1,6 +1,7 @@
+# Backend status [![Build Status](https://jenkins.squared.cf/job/build%20API/badge/icon)](https://jenkins.squared.cf/job/build%20API/)
+
 # TODO
  - uncomment below text and update it with useful description
- - update `nginx.conf` with your server setup
  - fulfill `.env` with your front address(see `.env_exmpl`)
  - update `requirements.txt` with your deps
  - write tests and sources in `tests` and `src` folders
