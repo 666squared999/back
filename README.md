@@ -13,9 +13,9 @@ Use [this](https://www.conventionalcommits.org/en/v1.0.0/#summary) guideline whe
 
 This is our solution to the test assignment of `int20h` hackathon. The task description is [here](https://mcusercontent.com/a90be75a5d6a2bb92a394e975/files/58c87f07-4fd7-4ec9-9119-456d8558f0b3/web_task.pdf) 
 
-* [api server](https://api-grechka.ml/)
-* [api docs(swagger)](https://api-grechka.ml/docs)
-* [api docs(redoc)](https://api-grechka.ml/redoc)
+* [api server](https://api.squared.cf/)
+* [api docs(swagger)](https://api.squared.cf/docs)
+* [api docs(redoc)](https://api.squared.cf/redoc)
 
 # Example
 
