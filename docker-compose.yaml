@@ -1,5 +1,8 @@
 version: "3"    
 
+volumes:
+        postgres_data:
+
 services:
     server_api:
         build: .
@@ -9,4 +12,21 @@ services:
             - ./src:/app/src
             - ./tests:/app/tests
         container_name: int20h-api-back
+        depends_on:
+            - postgresql
         command: build
+
+    postgresql:
+        image: postgres
+        container_name: postgres
+        restart: always
+        environment: 
+                - POSTGRES_USER=${POSTGRES_USER}
+                - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+                - POSTGRES_DB=${POSTGRES_DB}
+        volumes:
+                - ./postgres_data:/var/lib/postgresql/data/
+        ports:
+                - 5432:5432
+        expose:
+                - '5432'
