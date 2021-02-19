@@ -11,7 +11,7 @@ services:
         volumes:
             - ./src:/app/src
             - ./tests:/app/tests
-        container_name: int20h-api-back
+        container_name: api-back
         depends_on:
             - postgresql
         command: build
