@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM ubuntu
 
 RUN mkdir ./app
 
@@ -7,13 +7,14 @@ COPY ./requirements.txt ./app/requirements.txt
 COPY ./scripts/docker_entry.sh ./app/entry.sh
 COPY ./.env ./app/.env
 
+RUN apt update; yes Yes | apt install python3-pip;
+
 WORKDIR /app
 
-RUN apt-get update \
-    && apt-get install build-essential -y \
-    && apt-get clean
+RUN /bin/bash -c "pip3 install -r requirements.txt;"
 
-RUN pip install -r requirements.txt
+RUN apt-get install build-essential -y \
+    && apt-get clean
 
 RUN ["chmod", "+x", "./entry.sh"]
 ENTRYPOINT ["./entry.sh"]

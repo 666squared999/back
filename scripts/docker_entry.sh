@@ -5,7 +5,7 @@ trap "/bin/kill -s TERM -1" SIGTERM SIGQUIT
 
 case "$1" in
     '' | 'build')
-        (cd src && uvicorn main:app --reload)
+        (cd src && uwsgi --http :8000 --wsgi-file src/wsgi.py)
     ;;
     'tests')
         (PYTHONPATH=$PYTHONPATH:src pytest tests -vv)

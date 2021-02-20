@@ -11,6 +11,10 @@ services:
         volumes:
             - ./src:/app/src
             - ./tests:/app/tests
+        environment:
+                - POSTGRES_USER=${POSTGRES_USER}
+                - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+                - POSTGRES_DB=${POSTGRES_DB}
         container_name: api-back
         depends_on:
             - postgresql
