@@ -10,3 +10,8 @@ origins = [
     'http://localhost:3000',
     *(origins.split(';') if origins is not None else [])
 ]
+
+ALGORITHM = os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
+SECRET_KEY = os.getenv("SECRET_KEY")
+DB_PASS = os.getenv("DB_PASS")
