@@ -4,4 +4,5 @@ from advert.models import Advert
 class AdvertSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Advert
-        fields = ['title', 'photo_urls', 'animal_type', 'breed', 'color', 'sex', 'description']
+        fields = ['id', 'title', 'photo_urls', 'animal_type', 'breed', 'color', 'sex', 'description']
+        read_only_fields = ['id']
