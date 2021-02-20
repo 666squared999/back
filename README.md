@@ -28,21 +28,6 @@ cp .env_exmpl .env
 ```
 
 # HOWTO query
-
-It's very simple API consisting of one endpoint `/buckwheat`. 
-There are three optional parameters:
-
-```
-# minimal acceptable weight of the buckwheat in kg
-wmin: float = 0.0 
-
-# maxmal  acceptable weight of the buckwheat in kg
-wmax: float = inf
-
-# should we display ALL RESults sorted by smallest price/kg?
-# if default, returns only one cheapest option from each shop
-# in according weight ranges
-allres: float = False 
 ```
 
 ## Built With
