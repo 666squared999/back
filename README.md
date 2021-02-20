@@ -1,9 +1,5 @@
 # Backend status [![Build Status](https://jenkins.squared.cf/job/build%20API/badge/icon)](https://jenkins.squared.cf/job/build%20API/)
 
-# TODO
- - uncomment below text(md comments) and update it with useful description
- - write tests and sources in `tests` and `src` folders
-
 Use [this](https://www.conventionalcommits.org/en/v1.0.0/#summary) guideline when commiting.
 
 <!--
