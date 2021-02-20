@@ -11,10 +11,10 @@ SEX_CHOICES = [
     ('man', 'man'),
 ]
 
+
 class Advert(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='adverts')
     title = models.CharField(max_length=30)
-    photo_urls = ArrayField(models.ImageField(storage=storage, null=True), default=list)
     animal_type = models.CharField(max_length=15, blank=True, null=True)
     breed = models.CharField(max_length=30, blank=True, null=True)
     color = models.CharField(max_length=15, blank=True, null=True)
@@ -27,3 +27,8 @@ class Advert(models.Model):
     )
     description = models.CharField(max_length=600, blank=True, null=True)
     animal_features = models.JSONField(blank=True, default=dict)
+
+
+class Photo(models.Model):
+    advert = models.ForeignKey(Advert, on_delete=models.CASCADE, related_name='photos')
+    photo_url = models.ImageField(storage=storage)
