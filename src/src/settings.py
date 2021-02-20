@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv, find_dotenv
+import environ
 import os
 env = environ.Env()
 load_dotenv(find_dotenv())
