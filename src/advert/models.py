@@ -1,5 +1,9 @@
-from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from django_s3_storage.storage import S3Storage
+from django.conf import settings
+from django.db import models
+
+storage = S3Storage(aws_s3_bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
 
 SEX_CHOICES = [
     ('woman', 'woman'),
@@ -8,7 +12,7 @@ SEX_CHOICES = [
 
 class Advert(models.Model):
     title = models.CharField(max_length=30)
-    photo_urls = ArrayField(models.CharField(max_length=200), size=5)
+    photo_urls = models.ImageField(storage=storage, null=True)
     animal_type = models.CharField(max_length=15)
     breed = models.CharField(max_length=30)
     color = models.CharField(max_length=15)
