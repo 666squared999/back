@@ -12,9 +12,12 @@ class CustomAccountManager(BaseUserManager):
     def create_superuser(self, email, username, password, **other_fields):
 
         other_fields.setdefault("is_superuser", True)
+        other_fields.setdefault("is_staff", True)
 
         if other_fields.get("is_superuser") is not True:
             raise ValueError("Superuser must be assigned to is_superuser=True.")
+        if other_fields.get("is_staff") is not True:
+            raise ValueError("Superuser must be assigned to is_staff=True.")
 
         return self.create_user(email, username, password, **other_fields)
 
@@ -35,6 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_("email address"), unique=True)
     username = models.CharField(max_length=64, unique=True)
     start_date = models.DateTimeField(default=timezone.now)
+    is_staff = models.BooleanField(default=False)
 
     objects = CustomAccountManager()
 
