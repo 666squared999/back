@@ -11,3 +11,4 @@ django_s3_storage==0.13.4
 django-s3direct==1.1.8
 Pillow==8.0.1
 whitenoise
+django-filter

@@ -1,11 +1,16 @@
 from rest_framework import viewsets
 from rest_framework import permissions
-from advert.serializers import CreateAdvertSerializer, RetrieveAdvertSerializer, PhotoSerializer
+from advert.serializers import (
+    CreateAdvertSerializer,
+    RetrieveAdvertSerializer,
+    PhotoSerializer
+)
 from advert.models import Advert, Photo
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework.pagination import PageNumberPagination
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 
 
@@ -28,6 +33,8 @@ class AdvertViewSet(viewsets.ModelViewSet):
     """
     queryset = Advert.objects.all()
     pagination_class = CustomPagination
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['breed', 'sex', 'color', 'animal_type']
 
     def get_serializer_class(self):
         if self.action == 'list' or self.action == 'retrieve':

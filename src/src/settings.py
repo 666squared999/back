@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_s3_storage",
     "s3direct",
+    'django_filters',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
