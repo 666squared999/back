@@ -12,7 +12,7 @@ from django.http import JsonResponse
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
-
+from src.email import send_mail
 
 def modify_input_for_multiple_files(advert, photo_url):
     dict = {}
@@ -79,3 +79,14 @@ class PhotoView(APIView):
             return Response(arr, status=status.HTTP_201_CREATED)
         else:
             return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MailView(APIView):
+    def get(self, request, *args, **kwargs):
+        advert = kwargs.get('to')
+        if advert is None and request.user is None:
+            return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            advert = request.user.email
+
+        send_mail('lol', 'test')

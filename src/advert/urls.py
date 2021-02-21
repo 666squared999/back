@@ -2,11 +2,12 @@ from rest_framework.routers import DefaultRouter
 from .views import AdvertViewSet
 from django.urls import path
 from .views import (
-    PhotoView,
+    PhotoView, MailView
 )
 
 urlpatterns = [
-    path("photos/", PhotoView.as_view(), name="photo"),
+    path('photos/', PhotoView.as_view(), name='photo'),
+    path('mail/', MailView.as_view(), name='mail'),
 ]
 
 router = DefaultRouter()
