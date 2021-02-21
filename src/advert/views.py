@@ -82,11 +82,15 @@ class PhotoView(APIView):
 
 
 class MailView(APIView):
-    def get(self, request, *args, **kwargs):
-        advert = kwargs.get('to')
-        if advert is None and request.user is None:
-            return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request):
+        if request.user.is_authenticated:
+            email = request.user.email
         else:
-            advert = request.user.email
+            email = request.data.get('to')
+            
+        if email is None: 
+            return Response({}, status=status.HTTP_400_BAD_REQUEST)
 
-        send_mail('lol', 'test')
+        send_mail('lol', 'kek', email)
+        return Response({}, status=status.HTTP_200_OK)
+        
