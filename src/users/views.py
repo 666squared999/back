@@ -32,3 +32,15 @@ class CreateUserView(APIView):
             },
             status=status.HTTP_201_CREATED,
         )
+
+class UserMeView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    serializer_class = UserSerializer
+
+    def get(self, request):
+        user = request.user
+
+        return Response(
+            UserSerializer(user).data,
+            status=status.HTTP_201_CREATED,
+        )
