@@ -42,6 +42,13 @@ class AdvertViewSet(viewsets.ModelViewSet):
         else:
             return CreateAdvertSerializer
 
+    def get_queryset(self):
+        user = self.request.query_params.get('user', None)
+        if user:
+            return Advert.objects.filter(user=user)
+        else:
+            return Advert.objects.all()
+
 
 class PhotoView(APIView):
     def get(self, request):
